@@ -1,0 +1,32 @@
+name = "Demo Workflow"
+
+[data]
+[data.loader]
+name = "csv"
+[data.loader.args]
+file_path = "fixture/ohlcv_example.csv"
+time_field = "candle_begin_time"
+
+[factor]
+[[factor.indicators]]
+name = "SMA"
+args = { periods = [6, 24, 48] }
+[[factor.indicators]]
+name = "RSI"
+args = { periods = [12, 24] }
+[[factor.indicators]]
+name = "ATR"
+args = { periods = [12, 24] }
+
+[[factor.crosses]]
+name = "MUL"
+orders = [2]
+args = { }
+[[factor.crosses]]
+name = "PCA"
+orders = [-1]
+args = { n_components = 3 }
+[[factor.crosses]]
+name = "W_SUM"
+orders = [2]
+args = { weights = [[0.5, 0.5]] }
