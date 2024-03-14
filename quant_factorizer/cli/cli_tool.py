@@ -19,7 +19,10 @@ def cli():
     pass
 
 
-@cli.command()
+@cli.command(
+    name='run',
+    help='Runs a workflow.',
+)
 @click.option(
     '--workflow',
     required=True,
@@ -45,18 +48,11 @@ def cli():
     default=1,
     help='The number of concurrent processes to use.',
 )
-@click.option(
-    '--output-dir',
-    required=True,
-    type=click.types.Path(file_okay=False, dir_okay=True),
-    help='The path of the output directory.',
-)
 def run(
-        workflow: typing.TextIO,
-        begin: typing.Optional[arrow.Arrow],
-        end: typing.Optional[arrow.Arrow],
-        concurrency: int,
-        output_dir: str,
+    workflow: typing.TextIO,
+    begin: typing.Optional[arrow.Arrow],
+    end: typing.Optional[arrow.Arrow],
+    concurrency: int,
 ):
     """
      Runs a workflow.
@@ -65,17 +61,14 @@ def run(
     :param begin: Begin time (included).
     :param end: End time (excluded).
     :param concurrency: The number of concurrent processes to use.
-    :param output_dir: The path of the output directory.
 
     :return: None
     """
 
     conf = load_config(workflow)
-    console = Console()
-    for symbol, df in run_workflow(conf, begin=begin, end=end, concurrency=concurrency):
-        console.print(symbol)
-        df.to_csv(
-            os.path.join(output_dir, f'{symbol}.csv'),
-            header=True,
-            index=True,
-        )
+    run_workflow(
+        conf,
+        begin=begin,
+        end=end,
+        concurrency=concurrency,
+    )

@@ -7,6 +7,11 @@ name = "csv"
 file_path = "fixture/ohlcv_example.csv"
 time_field = "candle_begin_time"
 
+[data.writer]
+name = "csv"
+[data.writer.args]
+file_path = "fixture/indicators.csv"
+
 [factor]
 [[factor.indicators]]
 name = "SMA"

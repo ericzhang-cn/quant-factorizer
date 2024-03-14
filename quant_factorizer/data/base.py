@@ -54,3 +54,55 @@ class OHLCVDataLoader(abc.ABC):
             return CSVLoader(**kwargs)
         else:
             raise LoaderNotFoundError(f'Loader {name} not found.')
+
+
+class WriteDataError(Exception):
+    """Raised when there is an error while writing data."""
+
+    pass
+
+
+class WriterNotFoundError(Exception):
+    """raised when a writer is not found"""
+
+    pass
+
+
+class IndicatorWriter(abc.ABC):
+    """
+    Abstract base class for writing technical indicator data.
+    """
+
+    @abc.abstractmethod
+    def write(self, df: pd.DataFrame) -> None:
+        """
+        Abstract method to write the technical indicator data.
+
+        :param df: The DataFrame containing the technical indicator data.
+        :type df: pd.DataFrame
+        """
+        raise NotImplementedError
+
+    @classmethod
+    def get_instance(cls, name: str, **kwargs) -> IndicatorWriter:
+        """
+        Returns an instance of :class:`IndicatorWriter` based on the provided name.
+
+        :param name: The name of the writer.
+        :type name: str
+        :param **kwargs: Additional keyword arguments to be passed to the writer.
+        :return: An instance of :class:`IndicatorWriter`.
+        :rtype: IndicatorWriter
+        :raises WriterNotFoundError: If the specified writer name is not found.
+        """
+        if name.lower() == 'pickle':
+            from quant_factorizer.data.writers import PickleWriter
+
+            return PickleWriter(**kwargs)
+        if name.lower() == 'csv':
+            from quant_factorizer.data.writers import CSVWriter
+
+            return CSVWriter(**kwargs)
+
+        else:
+            raise WriterNotFoundError(f'Writer {name} not found.')

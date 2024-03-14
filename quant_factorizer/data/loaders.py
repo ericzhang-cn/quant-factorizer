@@ -1,4 +1,5 @@
 import os.path
+import typing
 
 import pandas as pd
 
@@ -7,9 +8,9 @@ from quant_factorizer.data.base import LoadDataError, OHLCVDataLoader
 
 class LocalFileLoader(OHLCVDataLoader):
     """
-    A class for loading OHLCV data from a local file.
+    A base class for loading OHLCV data from a local file.
 
-    This class extends the abstract base class OHLCVDataLoader.
+    This class is an abstract base class that provides a common interface for loading OHLCV data from different file types.
     """
 
     def __init__(

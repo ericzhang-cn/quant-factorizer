@@ -25,8 +25,14 @@ class LoaderConf(BaseModel):
     args: dict[str, typing.Any] = {}
 
 
+class WriterConf(BaseModel):
+    name: str
+    args: dict[str, typing.Any] = {}
+
+
 class DataConf(BaseModel):
     loader: LoaderConf
+    writer: WriterConf
 
 
 class WorkflowConf(BaseModel):
