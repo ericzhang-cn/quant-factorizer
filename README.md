@@ -100,15 +100,14 @@ The configuration file consists of several sections, each dedicated to a differe
 1. **name**: Specifies the name of the workflow, which can be used for identification and logging purposes.
 
 2. **data**: Contains settings related to data loading and writing.
-    + **loader**: Defines the type of data loader to use (e.g., CSV) and its associated arguments (such as the file path
+    - **loader**: Defines the type of data loader to use (e.g., CSV) and its associated arguments (such as the file path
       and time field).
-    + **writer**: Specifies the type of data writer (e.g., CSV) and its configuration (like the output file path).
-    + **factor**: Describes the calculation and application of various factors or indicators to the loaded data.
-3. **indicators**: Lists the indicators to be computed, along with their respective arguments (like periods for moving
-   averages).
-4. **crosses**: Defines cross-computations or transformations to be applied to the indicators, including their order and
-   any
-   additional arguments.
+    - **writer**: Specifies the type of data writer (e.g., CSV) and its configuration (like the output file path).
+3. **factor**: Describes the calculation and application of various factors or indicators to the loaded data.\
+    - **indicators**: Lists the indicators to be computed, along with their respective arguments (like periods for
+      moving averages).
+    - **crosses**: Defines cross-computations or transformations to be applied to the indicators, including their order
+      and any additional arguments.
 
 <h4>Editing Instructions</h4>
 
