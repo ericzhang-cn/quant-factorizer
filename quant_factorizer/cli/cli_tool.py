@@ -1,10 +1,8 @@
-import os.path
 import typing
 import warnings
 
 import arrow
 import click
-from rich.console import Console
 
 from quant_factorizer.cli.types import ArrowType
 from quant_factorizer.workflow.config import load_config
