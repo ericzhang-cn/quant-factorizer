@@ -36,6 +36,7 @@ class DataConf(BaseModel):
 
 
 class WorkflowConf(BaseModel):
+    name: str
     data: DataConf
     factor: FactorConf
 

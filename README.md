@@ -319,10 +319,6 @@ example.
 
 <h3>Develop your own Indicator</h3>
 
-This guide provides instructions on how to develop custom technical indicators using the provided framework. Technical
-indicators are essential tools in financial analysis, helping traders and investors identify trends, momentum, and
-potential trading signals.
-
 To develop a custom indicator, you need to follow these steps:
 
 1. Import the necessary libraries and modules.
