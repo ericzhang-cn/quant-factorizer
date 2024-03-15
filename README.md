@@ -3,6 +3,8 @@
 <p align="center"><img src="https://socialify.git.ci/ericzhang-cn/quant-factorizer/image?description=1&amp;font=Inter&amp;language=1&amp;name=1&amp;pattern=Solid&amp;theme=Light" alt="project-image"></p>
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+[![Pylint](https://github.com/ericzhang-cn/quant-factorizer/actions/workflows/pylint.yml/badge.svg)](https://github.com/ericzhang-cn/quant-factorizer/actions/workflows/pylint.yml)
+[![Python application](https://github.com/ericzhang-cn/quant-factorizer/actions/workflows/python-app.yml/badge.svg)](https://github.com/ericzhang-cn/quant-factorizer/actions/workflows/python-app.yml)
 
 <h2>💡 Features</h2>
 
