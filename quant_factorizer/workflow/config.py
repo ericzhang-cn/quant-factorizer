@@ -15,9 +15,15 @@ class CrossConf(BaseModel):
     args: dict[str, typing.Any] = {}
 
 
+class EvaluatorConf(BaseModel):
+    name: str
+    args: dict[str, typing.Any] = {}
+
+
 class FactorConf(BaseModel):
     indicators: list[IndicatorConf] = {}
     crosses: typing.Optional[list[CrossConf]] = None
+    evaluators: typing.Optional[list[EvaluatorConf]] = None
 
 
 class LoaderConf(BaseModel):

@@ -10,7 +10,8 @@ time_field = "candle_begin_time"
 [data.writer]
 name = "csv"
 [data.writer.args]
-file_path = "fixture/indicators.csv"
+dir_path = "fixture/output/"
+prefix = "example-"
 
 [factor]
 [[factor.indicators]]
@@ -35,3 +36,10 @@ args = { n_components = 3 }
 name = "W_SUM"
 orders = [2]
 args = { weights = [[0.5, 0.5]] }
+
+[[factor.evaluators]]
+name = "Describe"
+args = { normalize = true }
+[[factor.evaluators]]
+name = "PCC"
+args = { }

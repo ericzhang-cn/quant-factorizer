@@ -17,7 +17,8 @@ def test_load_config_file():
 
         assert conf.data.writer.name == 'csv'
         assert conf.data.writer.args == {
-            'file_path': 'fixture/indicators.csv',
+            'dir_path': 'fixture/output/',
+            'prefix': 'example-',
         }
 
         assert conf.factor.indicators[0].name == 'SMA'

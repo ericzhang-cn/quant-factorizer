@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import abc
+import typing
 
 import pandas as pd
 
@@ -74,12 +75,19 @@ class IndicatorWriter(abc.ABC):
     """
 
     @abc.abstractmethod
-    def write(self, df: pd.DataFrame) -> None:
+    def write(
+        self,
+        *,
+        calculation_df: typing.Optional[pd.DataFrame] = None,
+        evaluation_df: typing.Optional[pd.DataFrame] = None,
+    ) -> None:
         """
         Abstract method to write the technical indicator data.
 
-        :param df: The DataFrame containing the technical indicator data.
-        :type df: pd.DataFrame
+        :param calculation_df: The dataframe containing the calculated technical indicators.
+        :type calculation_df: pd.DataFrame
+        :param evaluation_df: The dataframe containing the evaluated technical indicators.
+        :type evaluation_df: pd.DataFrame
         """
         raise NotImplementedError
 
