@@ -14,20 +14,9 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install TA-Lib
-      run: |
-        wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
-        tar -xzf ta-lib-0.4.0-src.tar.gz
-        cd ta-lib/
-        ./configure -prefix=/usr
-        make
-        sudo make install
     - name: Install dependencies
       run: |
-        # python -m pip install --upgrade pip
-        pip install TA-Lib
-        pip install poetry
-        poetry install
+        python -m pip install --upgrade pip
         pip install pylint
     - name: Analysing the code with pylint
       run: |
