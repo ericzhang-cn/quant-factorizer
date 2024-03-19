@@ -32,10 +32,10 @@ args = { }
 name = "PCA"
 orders = [-1]
 args = { n_components = 3 }
-[[factor.crosses]]
-name = "W_SUM"
-orders = [2]
-args = { weights = [[0.5, 0.5]] }
+# [[factor.crosses]]
+# name = "W_SUM"
+# orders = [2]
+# args = { weights = [[0.5, 0.5]] }
 
 [[factor.evaluators]]
 name = "Describe"
